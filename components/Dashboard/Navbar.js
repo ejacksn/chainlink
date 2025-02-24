@@ -12,6 +12,7 @@ const Navbar = () => {
       <Logo onClick={() => logOut(setUser)} href="/">CMPSC 263</Logo>
       <Home></Home>
       <NavLinks>
+        <ButtonLink href="/boards/">Explore</ButtonLink>
         <ButtonLink href="/auth/signup">Sign Up</ButtonLink>
         <ButtonLink href="/auth/login">Login</ButtonLink>
       </NavLinks>
@@ -20,7 +21,7 @@ const Navbar = () => {
 };
 
 const Nav = styled.nav`
-
+  background-color: #061003;
 `;
 
 const Logo = styled(Link)`
