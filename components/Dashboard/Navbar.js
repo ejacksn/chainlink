@@ -9,23 +9,41 @@ const Navbar = () => {
 
   return (
     <Nav>
-      <Logo onClick={() => logOut(setUser)} href="/">CMPSC 263</Logo>
-      <Home></Home>
+      <NavLeft>
+        <Logo onClick={() => logOut(setUser)} href="/">chainLink</Logo>
+        <Home></Home>
+      </NavLeft>
+
       <NavLinks>
-        <ButtonLink href="/auth/signup">Sign Up</ButtonLink>
+
         <ButtonLink href="/auth/login">Login</ButtonLink>
+        <ButtonLink href="/auth/signup">Sign Up</ButtonLink>
+        
       </NavLinks>
     </Nav>
   );
 };
 
 const Nav = styled.nav`
-
+background-color: #9197ae; /*secondary*/
+width:100%;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
 `;
 
 const Logo = styled(Link)`
-
+  text-decoration: none;
+  font-size: 2rem;
+  color: #343135; /*primary*/
+  font-family: 'Roboto', sans-serif;
 `;
+
+const NavLeft = styled.div`
+
+
+`
 
 const NavLinks = styled.div`
 
