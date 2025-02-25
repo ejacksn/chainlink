@@ -63,7 +63,7 @@ const OrganizingDiv = styled.div`
 const Section = styled.section`
   display: block;
   width: 50%;
-  height: 50%;
+  padding: 20px;
   background-color: #AAAE7F;
   border-radius: 8%;
   border: 2px solid #D0D6B3;
@@ -96,23 +96,34 @@ const InputTitle = styled.label` /* Changed to label for semantics */
 `;
 
 const MainButton = styled.button`
-  background-color: #AAAE7F;
+  background-color: #061003;
+
+  color: #d0d6b3;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+
+  height: 40px;
+  border-radius: 8px;
   width: 50%;
   align-self: center;
   &:hover {
     background-color: #D0D6B3;
+    color: #061003;
   }
 `;
 
 const UserAgreementText = styled.p`
-  font-size: 12px;
+  font-size: 1rem;
   color: #666;
-  margin-top: 20px;
+  margin-bottom: 1rem;
   text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: #061003;
 `;
 
 const UserAgreementSpan = styled(Link)`
-  color: #AAAE7F;
+  color: #061d03;
+  font-weight: bold;
   cursor: pointer;
   &:hover {
     text-decoration: underline;

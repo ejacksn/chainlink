@@ -45,32 +45,60 @@ const Signup = () => {
   return (
     <>
     <Navbar/>
+    <CenterDiv>
     <Section>
-        <Header>Signup</Header>
+        <Header>Sign Up</Header>
         <Input type="text" placeholder="username"value={password} onChange={()=>{}}/>
         <Input type="email" placeholder="email"value={email} onChange={(e) => setEmail(e.target.value)}/>
-        <InputTitle>Password</InputTitle>
         <Input type="password" placeholder="password"value={password} onChange={(e) => setPassword(e.target.value)}/>
 
-        <UserAgreementText>By signing in, you automatically agree to our <UserAgreementSpan href='/legal/terms-of-use' rel="noopener noreferrer" target="_blank"> Terms of Use</UserAgreementSpan> and <UserAgreementSpan href='/legal/privacy-policy' rel="noopener noreferrer" target="_blank">Privacy Policy.</UserAgreementSpan></UserAgreementText>
+        <UserAgreementText>By signing in, you automatically agree to our <UserAgreementSpan href='/legal/terms-and-conditions' rel="noopener noreferrer" target="_blank"> Terms and Conditions</UserAgreementSpan></UserAgreementText>
 
         <MainButton onClick={handleSignup}>Signup</MainButton>
 
     </Section>
+    </CenterDiv>
     </>
   )
 }
 
+const CenterDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 95vh;
+  background-color: #061003;
+
+`
+
 const Section = styled.section`
   display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: 20px;
+  background-color: #AAAE7F;
+  border-radius: 8%;
+  border: 2px solid #D0D6B3;
+  padding: 20px;
 `;
 
 const Header = styled.h1`
   font-size: 24px; /* Adjusted for better scalability */
+  color: #061003;
+  font-family: 'Poppins', sans-serif;
 `;
 
 const Input = styled.input`
   font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  border-radius:7px;;
+  border: border-box;
+  border: 2px #061003 solid;
+  height: 40px;
+  margin: 1rem .5rem;
+  padding-left: 7px;
+
+  background-color: #D0D6B3;
 
 `;
 
@@ -79,16 +107,35 @@ const InputTitle = styled.label` /* Changed to label for semantics */
 `;
 
 const MainButton = styled.button`
-  font-size: 16px;
+  background-color: #061003;
 
+  color: #d0d6b3;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+
+  height: 40px;
+  border-radius: 8px;
+  width: 50%;
+  align-self: center;
+  margin: 1rem;
+  &:hover {
+    background-color: #D0D6B3;
+    color: #061003;
+  }
 `;
 
 const UserAgreementText = styled.p`
   font-size: 12px;
+  font-family: 'Poppins', sans-serif;
 `;
 
 const UserAgreementSpan = styled(Link)` 
-  color: #acc6b2;
+  color: #061003;
+  font-weight: bold;
+  text-decoration: none; 
+  &:hover {
+    text-decoration: underline;
+  }
 
 `;
 
