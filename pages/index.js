@@ -27,21 +27,34 @@ export default function Home() {
 }
 
 const HomePageContainer = styled.div`
-  display: block;
+  display: flex;
+  flex-direction: column;
   background-color: #061003;
   width: 100%;
   margin: 0%;
   overflow: hidden;
+  align-items: center;
 `
 const BrowseButton = styled.button`
-  background-color: #AAAE7F;
+  background-color: var(--light-primary);
   color: #061003;
   padding: 10px 20px;
-  border: none;
+  border: 2px solid var(--dark-primary);
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
-  font-weight: bold;
+  font-weight: 200px;
   font-family: 'Poppins', sans-serif;
-  margin:  0% 50%;
+  align-self: center;
+  
+  min-width: 300px;
+  height: 50px;
+  
+
+  &:hover{
+    background-color: var(--dark-primary);
+    color: var(--light-primary);
+    border : 2px solid var(--light-primary);
+    font-weight: bold;}
+  
 `

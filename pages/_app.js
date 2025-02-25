@@ -7,6 +7,9 @@ export const GlobalStyle = createGlobalStyle`
 
     margin: 0;
     padding: 0;
+    --dark-primary: #061003; 
+    --mid-secondary: #AAAE7F;
+    --light-primary: #D0D6B3;
   /* width */
   ::-webkit-scrollbar {
     width: 10px;
