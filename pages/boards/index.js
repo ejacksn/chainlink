@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link'
 import Navbar from '@/components/Dashboard/Navbar';
-import microBoard from '@/components/linkBoards/microBoard';
+import MicroBoard from '@/components/linkBoards/MicroBoard';
 
 export default function Explore(){
     return(
@@ -12,6 +12,8 @@ export default function Explore(){
         <PageDiv> 
         <Header>Popular</Header>
         <DisplayDiv>
+            <MicroBoard></MicroBoard>
+            <MicroBoard></MicroBoard>
 
         </DisplayDiv>
         <ul>
