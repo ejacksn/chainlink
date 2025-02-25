@@ -11,6 +11,8 @@ const Login = () => {
   const [ email, setEmail ] = useState('')
   const [ password, setPassword ] = useState('')
 
+  const [username, setUsername] = useState('')
+
   const router = useRouter()
 
 
@@ -22,32 +24,69 @@ const Login = () => {
   return (
     <>
     <Navbar/>
+    <CenterDiv>
     <Section>
         <Header>Login</Header>
-        <InputTitle>Email</InputTitle>
-        <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-        <InputTitle>Password</InputTitle>
-        <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
 
-        <UserAgreementText>By signing in, you automatically agree to our <UserAgreementSpan href='/legal/terms-of-use' rel="noopener noreferrer" target="_blank"> Terms of Use</UserAgreementSpan> and <UserAgreementSpan href='/legal/privacy-policy' rel="noopener noreferrer" target="_blank">Privacy Policy.</UserAgreementSpan></UserAgreementText>
+        <OrganizingDiv>
+        
+        <Input type="email" placeholder="email"value={email} onChange={(e) => setEmail(e.target.value)}/>
+        
+        <Input type="password" placeholder="password"value={password} onChange={(e) => setPassword(e.target.value)}/>
+
+        
+
+        <UserAgreementText>By signing in, you automatically agree to our <UserAgreementSpan href='/legal/terms-and-conditions' rel="noopener noreferrer" target="_blank"> Terms and Conditions</UserAgreementSpan></UserAgreementText>
 
         <MainButton onClick={handleLogin}>Login</MainButton>
 
+        </OrganizingDiv>
+
     </Section>
+    </CenterDiv>
     </>
   )
 }
 
-const Section = styled.section`
+const CenterDiv = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 95vh;
+  background-color: #061003;
+
+`
+const OrganizingDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+const Section = styled.section`
+  display: block;
+  width: 50%;
+  height: 50%;
+  background-color: #AAAE7F;
+  border-radius: 8%;
+  border: 2px solid #D0D6B3;
+  padding: 20px;
 `;
 
 const Header = styled.h1`
   font-size: 24px; /* Adjusted for better scalability */
+  color: #061003;
+  font-family: 'Poppins', sans-serif;
 `;
 
 const Input = styled.input`
   font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  border-radius:7px;;
+  border: border-box;
+  border: 2px #061003 solid;
+  height: 40px;
+  margin: 1rem .5rem;
+  padding-left: 7px;
+
+  background-color: #D0D6B3;
 
 `;
 
@@ -57,9 +96,11 @@ const InputTitle = styled.label` /* Changed to label for semantics */
 `;
 
 const MainButton = styled.button`
-  background-color: #007bff;
+  background-color: #AAAE7F;
+  width: 50%;
+  align-self: center;
   &:hover {
-    background-color: #0056b3;
+    background-color: #D0D6B3;
   }
 `;
 
@@ -71,7 +112,7 @@ const UserAgreementText = styled.p`
 `;
 
 const UserAgreementSpan = styled(Link)`
-  color: #007bff;
+  color: #AAAE7F;
   cursor: pointer;
   &:hover {
     text-decoration: underline;

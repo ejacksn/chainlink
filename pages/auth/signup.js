@@ -47,10 +47,10 @@ const Signup = () => {
     <Navbar/>
     <Section>
         <Header>Signup</Header>
-        <InputTitle>Email</InputTitle>
-        <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+        <Input type="text" placeholder="username"value={password} onChange={()=>{}}/>
+        <Input type="email" placeholder="email"value={email} onChange={(e) => setEmail(e.target.value)}/>
         <InputTitle>Password</InputTitle>
-        <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+        <Input type="password" placeholder="password"value={password} onChange={(e) => setPassword(e.target.value)}/>
 
         <UserAgreementText>By signing in, you automatically agree to our <UserAgreementSpan href='/legal/terms-of-use' rel="noopener noreferrer" target="_blank"> Terms of Use</UserAgreementSpan> and <UserAgreementSpan href='/legal/privacy-policy' rel="noopener noreferrer" target="_blank">Privacy Policy.</UserAgreementSpan></UserAgreementText>
 
@@ -88,7 +88,7 @@ const UserAgreementText = styled.p`
 `;
 
 const UserAgreementSpan = styled(Link)` 
-  color: #007bff;
+  color: #acc6b2;
 
 `;
 

@@ -1,21 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
 const Hero = ({text}) => {
   return (
     <Section>
       <Overlay>
         <Container>
-          <HeroTextColumn>
-            <Header>
-              {text}
-              <Highlight>Start Here</Highlight>
-            </Header>
-            <SubheaderAndStarsColumn>
-              <SubHeader>Insert creative subheader here</SubHeader>
-              <CTAButton>Get Started</CTAButton>
-            </SubheaderAndStarsColumn>
-          </HeroTextColumn>
+          
+          
         </Container>
       </Overlay>
     </Section>
@@ -23,9 +16,10 @@ const Hero = ({text}) => {
 };
 
 const Section = styled.section`
-background-color: blue;
+
 width: 100%;
 height: 10vh;
+color: #D0D6B3;
 `;
 
 const Overlay = styled.div`
