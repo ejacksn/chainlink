@@ -66,7 +66,7 @@ const Section = styled.section`
   padding: 20px;
   background-color: #AAAE7F;
   border-radius: 8%;
-  border: 2px solid #D0D6B3;
+  border: 2px solid #AAAE7F;
   padding: 20px;
 `;
 

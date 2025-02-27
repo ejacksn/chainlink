@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import Link from 'next/link';
 
 
 export default function MicroBoard({BoardTitle, BoardDescription, BoardLink}) {
@@ -35,6 +36,13 @@ const BoardItem = styled.div`
 `
 const BoardTitle = styled.h1`
     font-size: 2rem;
+    color: #D0D6B3;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300px;
+`
+
+const Description = styled.p`
+    font-size: 1rem;
     color: #D0D6B3;
     font-family: 'Poppins', sans-serif;
     font-weight: 300px;
