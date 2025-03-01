@@ -10,24 +10,34 @@ export const StateContext = ({ children }) => {
   // Variables to Carry Across Multiple Pages
   const [user, setUser] = useState(undefined)
 
+  /*
+    user object is like this:
+    {
+      uid: '<USER_ID>',
+      email: '<USER_EMAIL>',
+      displayName: '<USER_DISPLAY_NAME>'
+  } 
+*/
+
   const router = useRouter()
   const { asPath } = useRouter()
 
-  // AUTHENTICATION REMEMBER ME USEEFFECT
-  // useEffect(() => {
-  //   const unsubscribe = onIdTokenChanged(auth, (user) => {
-  //     if(user){
-  //       console.log('Token or user state changed:', user)
-  //       user.getIdToken().then((token) => {
-  //         console.log('New ID token:', token)
-  //       })
-  //       setUser(user)
-  //     } else {
-  //       setUser(null) //there is no user signed in
-  //     }
-  //   });
-  //   return () => unsubscribe();
-  // }, []);
+   //AUTHENTICATION REMEMBER ME USEEFFECT
+   useEffect(() => {
+     const unsubscribe = onIdTokenChanged(auth, (user) => {
+       if(user){
+         console.log('Token or user state changed:', user)
+         user.getIdToken().then((token) => {
+           console.log('New ID token:', token)
+         })
+         setUser(user)
+       } else {
+         setUser(null) //there is no user signed in
+       }
+     });
+     return () => unsubscribe();
+   }, []);
+   
 
 
 

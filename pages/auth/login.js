@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
 import { useStateContext } from '@/context/StateContext'
-import {login, isEmailInUse} from '@/backend/Auth'
+//import {login, isEmailInUse} from '@/backend/Auth'
+
+import { loginUser } from '@/backend/Auth' //login fucntion 
 import Link from 'next/link'
 import Navbar from '@/components/Dashboard/Navbar'
 const Login = () => {
@@ -15,11 +17,29 @@ const Login = () => {
 
   const router = useRouter()
 
+  const [loginError, setLoginError] = useState('') //state to hold error message
+
 
   async function handleLogin(){
 
-  }
+    setLoginError('') //clear error message
+    
 
+    if (!email || !password) { // can't log in with blank fields, duh
+      setLoginError("All fields are required.");
+      return;
+
+    }
+    try{
+      await loginUser(email, password, setUser) //login function
+      router.push('/dashboard') //redirect to dashboard
+    }
+    catch(error){
+      console.log('login error', error)
+      setLoginError(error.message) //set error message
+    }
+    
+  }
 
   return (
     <>
@@ -37,6 +57,8 @@ const Login = () => {
         
 
         <UserAgreementText>By signing in, you automatically agree to our <UserAgreementSpan href='/legal/terms-and-conditions' rel="noopener noreferrer" target="_blank"> Terms and Conditions</UserAgreementSpan></UserAgreementText>
+
+        {loginError? <errorDiv>{loginError}</errorDiv> : null} {/*show error div on error*/}
 
         <MainButton onClick={handleLogin}>Login</MainButton>
 
@@ -131,6 +153,14 @@ const UserAgreementSpan = styled(Link)`
   &:not(:last-of-type)::after {
     content: ', '; /* Adds comma between links */
   }
+`;
+const errorDiv = styled.div`
+  border: red solid 2px;
+  border-radius: 8px;
+  font-size: 12px;
+  margin-top: 10px;
+  text-align: center;
+  color: red;
 `;
 
 

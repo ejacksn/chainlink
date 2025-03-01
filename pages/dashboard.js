@@ -25,6 +25,8 @@ const Dashboard = () => {
 
 
   return (
+    <>
+    <Navbar/>
     <Section>
       {/* <TopHeader>
         Dashboard
@@ -32,6 +34,7 @@ const Dashboard = () => {
 
 
     </Section>
+    </>
   )
 }
 

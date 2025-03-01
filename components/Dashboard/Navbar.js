@@ -6,7 +6,7 @@ import { useStateContext } from '@/context/StateContext';
 import Home from '@/components/Dashboard/Home'
 import { GlobalStyle } from '@/pages/_app';
 const Navbar = () => {
-  const { setUser } = useStateContext()
+  const { user, setUser } = useStateContext()
 
   return (
     <Nav>
@@ -14,8 +14,14 @@ const Navbar = () => {
       <Home></Home>
       <NavLinks>
         <ButtonLink href="/boards/">Explore</ButtonLink>
+        {user? //displayname if logged in on navbar + removes login/signup buttons
+        <UserText>Logged in as {user.displayName}</UserText>
+        : 
+        <>
         <ButtonLink href="/auth/login">Login</ButtonLink>
         <ButtonLink href="/auth/signup">Sign Up</ButtonLink>
+        </>
+}
       </NavLinks>
       <NavEnd>
 
@@ -59,6 +65,7 @@ const ButtonLink = styled(Link)`
   color: #D0D6B3;
   text-decoration:none;
   padding: 0.5rem;
+  font-family: poppins;
 
   &:hover {
     background-color: #D0D6B3; //colorswap when hover
@@ -66,12 +73,17 @@ const ButtonLink = styled(Link)`
     
     border-radius: 5px;
   }
-    font-family: poppins;
+    
 
 `;
 const NavEnd = styled.div`
   display: flex;
   width:50%
 `
+const UserText = styled.span`
+color: #D0D6B3;
+font-family: poppins;
+`
 
 export default Navbar;
+

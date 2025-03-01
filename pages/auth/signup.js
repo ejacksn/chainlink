@@ -2,9 +2,13 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
 import { useStateContext } from '@/context/StateContext'
-import { isEmailInUse, register} from '@/backend/Auth'
+//import { isEmailInUse, register} from '@/backend/Auth' //old import from template
+
 import Link from 'next/link'
 import Navbar from '@/components/Dashboard/Navbar'
+
+import { registerUser } from '@/backend/Auth' //function to register new user
+
 const Signup = () => {
 
   const { user, setUser } = useStateContext()
@@ -12,33 +16,56 @@ const Signup = () => {
   const [ password, setPassword ] = useState('')
   const [username, setUsername] = useState('')
 
+  const [signUpError, setSignUpError] = useState('') //state to hold error message
+
   const router = useRouter()
 
   async function validateEmail(){
     const emailRegex = /^[\w.%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
     if(emailRegex.test(email) == false ){
+        setSignUpError('Invalid email format') // set error div to show invalid email format
         return false;
     }
     console.log('so far so good...')
+    /* apparently firebase implicitly checks for email duplication so this will be ahndled by error on signup 
     const emailResponse = await isEmailInUse(email)
     console.log('email response', emailResponse)
     if(emailResponse.length == 0 ){
         return false;
     }
+    */
 
     return true;
 }
 
   async function handleSignup(){
+
+    setSignUpError('') //clear error message
+
     const isValidEmail = await validateEmail()
+
+    if (!username || !email || !password) {
+      setSignUpError("All fields are required.");
+      return;
+    }
+
+    if (isValidEmail == false) { //if email is not valid, return so signup aborts
+        console.log('invalid email')
+        return;
+    }
     // console.log('isValidEmail', isValidEmail)
     // if(!isValidEmail){ return; }
     
+    
+
+    
+    
     try{
-        await register(email, password, setUser)
+        await registerUser(email, password, username, setUser)
         router.push('/dashboard')
     }catch(err){
         console.log('Error Signing Up', err)
+        setSignUpError(err.message) //set signUpError stateful var to the error message from firebase
     }
   }
 
@@ -54,6 +81,7 @@ const Signup = () => {
         <Input type="password" placeholder="password"value={password} onChange={(e) => setPassword(e.target.value)}/>
 
         <UserAgreementText>By signing in, you automatically agree to our <UserAgreementSpan href='/legal/terms-and-conditions' rel="noopener noreferrer" target="_blank"> Terms and Conditions</UserAgreementSpan></UserAgreementText>
+        {signUpError? <ErrorDiv>{signUpError}</ErrorDiv> : null} {/*show error div on error*/}
 
         <MainButton onClick={handleSignup}>Signup</MainButton>
 
@@ -138,6 +166,16 @@ const UserAgreementSpan = styled(Link)`
     text-decoration: underline;
   }
 
+`;
+const ErrorDiv = styled.div`
+  border: red solid 2px;
+  border-radius: 8px;
+  font-size: 12px;
+  margin-top: 10px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: red;
+  
 `;
 
 
