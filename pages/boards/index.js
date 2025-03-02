@@ -12,8 +12,7 @@ export default function Explore(){
         <PageDiv> 
         <Header>Popular</Header>
         <DisplayDiv>
-            <MicroBoard></MicroBoard>
-            <MicroBoard></MicroBoard>
+            
 
         </DisplayDiv>
         <ul>

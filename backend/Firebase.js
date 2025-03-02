@@ -4,6 +4,7 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 import { getAuth } from "firebase/auth";
 
+
  const firebaseConfig = process.env.NODE_ENV === 'production' ? {
    apiKey: "",
    authDomain: "",
@@ -28,4 +29,6 @@ import { getAuth } from "firebase/auth";
  export const storage = getStorage(app);
  export const database = getFirestore(app);
  export const analytics = () => getAnalytics(app)
+
+
  export default app

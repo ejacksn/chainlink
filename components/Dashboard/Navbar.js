@@ -5,6 +5,10 @@ import { logOut } from '@/backend/Auth';
 import { useStateContext } from '@/context/StateContext';
 import Home from '@/components/Dashboard/Home'
 import { GlobalStyle } from '@/pages/_app';
+
+
+
+import { logoutUser } from '@/backend/Auth';
 const Navbar = () => {
   const { user, setUser } = useStateContext()
 
@@ -16,6 +20,7 @@ const Navbar = () => {
         <ButtonLink href="/boards/">Explore</ButtonLink>
         {user? //displayname if logged in on navbar + removes login/signup buttons
         <UserText>Logged in as {user.displayName}</UserText>
+        
         : 
         <>
         <ButtonLink href="/auth/login">Login</ButtonLink>
@@ -24,6 +29,14 @@ const Navbar = () => {
 }
       </NavLinks>
       <NavEnd>
+        { user? //logout button if logged in
+          <>
+            <LogoutButton onClick={logoutUser}>Sign Out</LogoutButton>
+          </>
+          : null
+
+
+        }
 
       </NavEnd>
     </Nav>
@@ -34,7 +47,8 @@ const Nav = styled.nav`
   background-color: #061003;
   display: flex;
   flex-direction:row;
-  align-items:center;
+  justify-content: flex-start;
+  align-items: center;
   height: min(10vh, 50px);
   
   width:100%;
@@ -75,10 +89,32 @@ const ButtonLink = styled(Link)`
   }
     
 
-`;
+`
+const LogoutButton = styled.button`
+  text-color: #061003;
+  background-color: #D0D6B3;
+  border: 1px solid #061003;
+  border-radius: 5px;
+  text-decoration:none;
+  padding: 0.5rem;
+  font-family: poppins;
+  align-self: flex-end;
+
+  &:hover {
+    background-color: #061003; //color swap when hover
+    color: #D0D6B3;
+    
+  }
+
+
+`
+
+
+
 const NavEnd = styled.div`
   display: flex;
-  width:50%
+  width:50%;
+  justify-content: flex-end;
 `
 const UserText = styled.span`
 color: #D0D6B3;

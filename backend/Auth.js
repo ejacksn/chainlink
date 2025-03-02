@@ -1,7 +1,7 @@
+import { CiZoomIn } from "react-icons/ci";
 import { auth } from "./Firebase";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, fetchSignInMethodsForEmail, updateProfile , reload} from "firebase/auth";
  
-
 
 export const registerUser = async (email, password, username, setUser) => {
     
@@ -45,3 +45,17 @@ export const loginUser = async (email, password, setUser) => {
     }
 }
 
+
+export const logoutUser = async () => {
+    try{ 
+        auth.signOut(); //sign out user
+        console.log('User signed out');
+        
+    }
+    catch (err){
+        console.log('Logout Error:', err)
+        throw err; //throw error to be caught by calling sign up button function so that i can display the error to the user
+    }
+   
+ }
+    

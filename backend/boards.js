@@ -1,0 +1,1 @@
+import { database, coll } from "./Firebase";

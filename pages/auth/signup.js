@@ -174,7 +174,10 @@ const ErrorDiv = styled.div`
   margin-top: 10px;
   text-align: center;
   font-family: 'Poppins', sans-serif;
-  color: red;
+  color: #D0D6B3;
+  padding: 10px 0px;
+  opacity: 0.8;
+  background-color: red;
   
 `;
 
