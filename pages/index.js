@@ -15,8 +15,8 @@ export default function Home() {
         <HomePageContainer>
         
         <ScrollingText />
-        <Link href="/boards">
-        <BrowseButton>Browse</BrowseButton>
+        <Link href="/auth/signup">
+        <StartButton>Get Started</StartButton>
         </Link>
         <ScrollingText />
         
@@ -36,7 +36,7 @@ const HomePageContainer = styled.div`
   overflow: hidden;
   align-items: center;
 `
-const BrowseButton = styled.button`
+const StartButton = styled.button`
   background-color: var(--light-primary);
   color: #061003;
   padding: 10px 20px;
@@ -47,6 +47,7 @@ const BrowseButton = styled.button`
   font-weight: 200px;
   font-family: 'Poppins', sans-serif;
   align-self: center;
+  
   
   min-width: 300px;
   height: 50px;

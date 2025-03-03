@@ -8,6 +8,7 @@ import { useRouter } from 'next/router'
 
 import { getBoardsByUser, deleteBoard } from '@/backend/Database'
 import Board from './boards/[board]'
+import Create from './boards/create'
 
 
 const Dashboard = () => {
@@ -66,6 +67,9 @@ const Dashboard = () => {
       <TopHeader>
         Dashboard
       </TopHeader>
+      <Link href="/boards/create">
+        <NewBoardButton>Create Board</NewBoardButton>
+      </Link> {/*link to create board*/}
       <UserBoards>
         {boards.map(board=>(
             <BoardCard key={board.id}>
@@ -177,6 +181,16 @@ border-color: none;
 &:hover{
   background-color: darkred;
 }
+`
+const NewBoardButton = styled.button`
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  border-radius:7px;
+  background-color: var(--mid-secondary);
+  color: var(--dark-primary);
 `
 
 

@@ -131,9 +131,7 @@ const Input = styled.input`
 
 `;
 
-const InputTitle = styled.label` /* Changed to label for semantics */
-  font-size: 14px;
-`;
+
 
 const MainButton = styled.button`
   background-color: #061003;

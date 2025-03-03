@@ -107,6 +107,7 @@ const Input = styled.input`
   height: 40px;
   margin: 1rem .5rem;
   padding-left: 7px;
+  background-color: #D0D6B3;
 
   
 
