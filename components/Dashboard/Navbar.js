@@ -17,7 +17,7 @@ const Navbar = () => {
       <Logo className="poppins-medium"onClick={() => logOut(setUser)} href="/">chainLink.</Logo>
       <Home></Home>
       <NavLinks>
-        <ButtonLink href="/boards/">Explore</ButtonLink>
+        
         {user? //displayname if logged in on navbar + removes login/signup buttons
         <UserText>Logged in as {user.displayName}</UserText>
         

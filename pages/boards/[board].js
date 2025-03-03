@@ -7,6 +7,8 @@ import { GlobalStyle } from '../_app'
 
 import { getBoard } from '@/backend/Database'
 
+import { updateViewCount } from '@/backend/viewCount'
+
 function Board() {
 
     const [board, setBoard] = useState(null);
@@ -14,14 +16,27 @@ function Board() {
 
     const router = useRouter()
     const boardId = router.query.board;//get id to use from url
+    const [views, setViews] = useState(0); //state variable to hold view count
 
 
     const fetchBoard = async () => {
         
         const board = await getBoard(boardId);
+
+        if (board){
+
+
         setBoard(board);
+
+        // Call API to increment and get the updated view count
+        const viewData = await updateViewCount(boardId);
+        if (viewData) {
+            setViews(viewData.VIEWCOUNT || 0); //set view variable to view count from api
+        }
+
+    }
         setIsLoading(false); //board is fettched so no longer loading
-        console.log(board);
+        
     }
 
     useEffect(() => {//fetch the board specifically based on the board id in the url
@@ -44,7 +59,7 @@ function Board() {
             <BoardTitle>{board.title}</BoardTitle>
             <span>
                 <h2>Author: {board.ownerName}</h2>
-                <h3>Views: {board.views}</h3>
+                <h3>Views: {views}</h3>
             </span>
 
             <BoardContent>
