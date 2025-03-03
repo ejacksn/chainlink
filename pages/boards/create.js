@@ -52,8 +52,8 @@ export default function Create() {
     }
 
     useEffect(() => {
-      if (!user) {
-        router.push('/login');
+      if (user===null) {
+        router.push('/auth/login');
       }
     }, [user]) //redirect to login if no user on page load or user change (logout probably)
 
