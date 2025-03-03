@@ -40,10 +40,10 @@ export default function Create() {
         return;
       }
       try {
-        await createBoard(title, links, user); //create board with title, links, and user
+        
         const boardId = await createBoard(title, links, user); //get id of created board
         console.log("Board created successfully");
-        router.push(`/boards/{boardId}`); //redirect to dashboard after creation
+        router.push(`/boards/${boardId}`); //redirect to dashboard after creation
 
       } catch (error) {
         console.error("Error creating board", error);
@@ -92,7 +92,7 @@ export default function Create() {
       
    
    
-   
+    <p>Ensure links begin with http:// or https://</p>
     </CreatePageContainer>
     
     </>

@@ -81,19 +81,64 @@ const BoardPageContainer = styled.div`
   margin: 0%;
   overflow: scroll;
   align-items: left;
+
+    span{
+        margin-left: 20px;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: row;
+        align-items: center;
+
+
+
+    h2{
+        color: var(--mid-secondary);
+        font-size: 4 rem;
+
+    }
+    h3{
+        margin-left: 20px;
+        color: var(--mid-secondary);
+        font-size: 3 rem;
+    }
 `
 
 const BoardTitle = styled.h1`
-    font-size: 24px;
+    font-size: 7rem;
+    font-family: 'Poppins', sans-serif;
     color: var(--light-primary);
+    margin-left: .5rem;
+    margin-bottom:0;
+    padding:none;
     
 `
 const BoardContent = styled.ul`
-
+    margin-left: 1.5rem;
+    border: 2px var(--light-primary) solid;
+    border-radius: 7px;
 `
 const BoardItem = styled.li`
+border: 2px var(--mid-secondary) solid;
+width: 80%;
+margin: 1rem;
+border-radius: 9px;
+
+    a{
+        color: var(--dark-primary);
+        font-size: 1.5rem;
+        
+        display: block;
+        padding: 1rem;
+        background-color: var(--mid-secondary);
+        border-radius: 7px 7px 0 0;
+        font-family: 'Poppins', sans-serif;
+    }
+
 
 `
 const BoardDescription = styled.p`
-
+    background-color: dark-primary;
+    font-family: 'Poppins', sans-serif;
+    color: var(--light-primary);
+    padding: .7rem;
 `
