@@ -3,6 +3,7 @@ import Navbar from '@/components/Dashboard/Navbar'
 import styled from 'styled-components'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import { GlobalStyle } from '../_app'
 
 import { getBoard } from '@/backend/Database'
 
@@ -138,7 +139,7 @@ border-radius: 9px;
 
 `
 const BoardDescription = styled.p`
-    background-color: dark-primary;
+    background-color: var(--dark-primary);
     font-family: 'Poppins', sans-serif;
     color: var(--light-primary);
     padding: .7rem;
