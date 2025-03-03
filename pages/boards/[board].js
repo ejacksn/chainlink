@@ -88,6 +88,7 @@ const BoardPageContainer = styled.div`
         justify-content: flex-start;
         flex-direction: row;
         align-items: center;
+        font-family: 'Poppins', sans-serif;
 
 
 

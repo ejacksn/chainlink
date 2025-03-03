@@ -1,4 +1,4 @@
-import { doc, setDoc, getDoc, getDocs,addDoc, collection, query, where } from "firebase/firestore"
+import { doc, setDoc, getDoc, getDocs,addDoc, collection, query, where,deleteDoc } from "firebase/firestore"
 import { auth, database } from "./Firebase"
 
 import { Timestamp } from "firebase/firestore"
@@ -63,4 +63,46 @@ export const getBoard = async (boardId) => {
 
 
 
+}
+
+export const getBoardsByUser = async (userId) => {
+    if (!userId) {
+        console.error("No user id provided");
+        return;
+    }
+
+    try{
+        const boardsRef = collection(database, "boards"); //get ref to boards collection
+        const q = query(boardsRef, where("ownerId", "==", userId)); //query boards collection for boards owned by logged in user
+        const boardsSnap = await getDocs(q); //get boards documents
+        return boardsSnap.docs.map(doc => (
+            {
+                id: doc.id,
+                data: doc.data()
+            }
+        )); //return array of board documents with ids as an object
+            
+    }
+    catch(error){
+        console.error("Error getting boards", error);
+        return [];
+    }
+}
+
+export const deleteBoard = async (boardId) => {
+    if (!boardId) {
+        console.error("No board id");
+        return;
+    }
+
+
+    try{ //fetch the board doc then delete it by its ref
+        const boardRef = doc(database, "boards", boardId); //get reference to board document
+        await deleteDoc(boardRef); //delete board document
+        console.log("Board deleted");
+    }
+    catch(error){
+        console.error("Error deleting this board", error);
+        throw error; //throw error so it can be caught by calling function for dispalying error message
+    }
 }
