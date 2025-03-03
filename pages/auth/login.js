@@ -58,7 +58,7 @@ const Login = () => {
 
         <UserAgreementText>By signing in, you automatically agree to our <UserAgreementSpan href='/legal/terms-and-conditions' rel="noopener noreferrer" target="_blank"> Terms and Conditions</UserAgreementSpan></UserAgreementText>
 
-        {loginError? <errorDiv>{loginError}</errorDiv> : null} {/*show error div on error*/}
+        {loginError? <ErrorDiv>{loginError}</ErrorDiv> : null} {/*show error div on error*/}
 
         <MainButton onClick={handleLogin}>Login</MainButton>
 
@@ -102,13 +102,15 @@ const Input = styled.input`
   font-size: 16px;
   font-family: 'Poppins', sans-serif;
   border-radius:7px;;
-  border: border-box;
+  
   border: 2px #061003 solid;
   height: 40px;
   margin: 1rem .5rem;
   padding-left: 7px;
 
-  background-color: #D0D6B3;
+  
+
+  
 
 `;
 
@@ -154,7 +156,7 @@ const UserAgreementSpan = styled(Link)`
     content: ', '; /* Adds comma between links */
   }
 `;
-const errorDiv = styled.div`
+const ErrorDiv = styled.div`
   border: red solid 2px;
   border-radius: 8px;
   font-size: 12px;

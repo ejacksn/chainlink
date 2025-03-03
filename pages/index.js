@@ -30,7 +30,8 @@ const HomePageContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #061003;
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
   margin: 0%;
   overflow: hidden;
   align-items: center;
@@ -55,6 +56,6 @@ const BrowseButton = styled.button`
     background-color: var(--dark-primary);
     color: var(--light-primary);
     border : 2px solid var(--light-primary);
-    font-weight: bold;}
+    }
   
 `
