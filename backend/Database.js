@@ -33,3 +33,34 @@ export const createBoard = async (title, links, user) => {
     }
 
 }
+
+export const getBoard = async (boardId) => {
+    if (!boardId) {
+        console.error("No board id provided");
+        return;
+    }
+
+    try{
+        const boardRef = doc(database, "boards", boardId); //get reference to board document
+        const boardSnap = await getDoc(boardRef); //get board document
+        if (boardSnap.exists()) {
+            return boardSnap.data(); //return data of board document
+        } else {
+            console.error("No such document");
+        }
+
+        if (boardSnap.exists()){
+            return boardSnap.data();
+        }
+        else{
+            console.error("No such document");
+        }
+    }
+    catch(error){
+        console.error("Error getting board", error);
+        return null;
+    }
+
+
+
+}
