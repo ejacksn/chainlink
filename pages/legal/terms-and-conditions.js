@@ -66,13 +66,20 @@ export default function terms_of_use() {
     <P>chainLink is provided “as is” and without warranty of any kind. We make no guarantees about uptime, reliability, security, or the accuracy of any content posted by users.</P>
 
     <H2>6. Limitation of Liability</H2>
-    <P></P>
+    <P>To the fullest extent permitted by law, ChainLink and its operators are not liable for any damages arising from your use of the Site, including but not limited to:
+
+Any content accessed through links on the Site.
+Account suspension, termination, or content removal.
+Any direct, indirect, incidental, consequential, or punitive damages related to your use of ChainLink.</P>
 
     <H2>7. Indemnification</H2>
-    <P></P>
+    <P>
+    You agree to indemnify and hold harmless ChainLink, its owners, and affiliates from any claims, liabilities, damages, or expenses arising from:
+    your use of the site, including any content you post or link to.
+    </P>
 
     <H2>8. Changes to These Terms</H2>
-    <P></P>
+    <P>We may update these Terms at any time. Continued use of the Site after changes constitutes acceptance of the updated Terms.</P>
 
     <H2>9. Governing Law</H2>
     <P>These Terms are governed by the laws of the United States without regard to conflict of law principles.</P>
