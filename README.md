@@ -1,5 +1,4 @@
-# MVP Starter
-## Use for making quick, full stack apps
-`npm run dev` for running dev server
-`npm run build` for creating a production build
-`npm run start` for testing production build
+ChainLink is a site for creating link boards for labelling and sharing media.
+Authentification via Firebase
+Users can create and delete boards.
+Boards can be shared with their respective links.
